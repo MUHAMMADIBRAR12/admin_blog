@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                <h1 class="m-0">Create SubCategory</h1>
+                <h1 class="m-0">Update SubCategory</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -25,7 +25,7 @@
             <div class="col-md-8">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Create SubCategory</h3>
+                        <h3 class="card-title">Update SubCategory</h3>
                     </div>
                     <form action="{{ url('subcategory/'.  $subcategory->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -33,18 +33,19 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="SubCategoryName">SubCategory Name</label>
-                                <input type="text" name="name" class="form-control" id="SubCategoryName" placeholder="SubCategory Name">
+                                <input type="text" name="name" value="{{ old('name',$subcategory->name) }}" class="form-control" id="SubCategoryName" placeholder="SubCategory Name">
                             </div>
                             <div class="form-group">
                                 <label for="CategoryName">Select category</label>
                                 <select name="category_id" class="form-control">
                                     <option selected>Select menu</option>
                                     @foreach ($category as $item)
-                                    <option>{{$item->category_id}}</option>
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
                                     @endforeach
 
                                 </select>
                             </div>
+
                             <div class="form-group">
                                 <label for="exampleInputFile">File input</label>
                                 <div class="input-group">
@@ -56,7 +57,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" name="update" class="btn btn-primary">Update</button>
                         </div>
                     </form>
                 </div>

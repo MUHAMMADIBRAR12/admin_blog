@@ -35,7 +35,7 @@ class AuthController extends Controller
             'password'=>'required',
         ]);
 
-      $user=new User;
+      $user = new User;
       $user->name=$request->name;
       $user->email=$request->email;
       $user->password=$request->password;

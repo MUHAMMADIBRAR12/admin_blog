@@ -8,12 +8,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                <h1 class="m-0">Create SubCategory</h1>
+                <h1 class="m-0">Create Post</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="./../index.php">Home</a></li>
-                        <li class="breadcrumb-item active">SubCategories</li>
+                        <li class="breadcrumb-item active">Posts</li>
                     </ol>
                 </div>
             </div>
@@ -25,24 +25,18 @@
             <div class="col-md-8">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Create SubCategory</h3>
+                        <h3 class="card-title">Create Post</h3>
                     </div>
-                    <form action="{{ Route('subcategory.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ Route('post.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="SubCategoryName">SubCategory Name</label>
-                                <input type="text" name="name" class="form-control" id="SubCategoryName" placeholder="SubCategory Name">
+                                <label for="PostName">Post Name</label>
+                                <input type="text" name="name" class="form-control" id="PostName" placeholder="Post Name">
                             </div>
                             <div class="form-group">
-                                <label for="CategoryName">Select category</label>
-                                <select name="category_id" class="form-control">
-                                    <option selected>Select menu</option>
-                                    @foreach ($category as $item)
-                                    <option value="{{$item->id}}">{{$item->name}}</option>
-                                    @endforeach
-
-                                </select>
+                                <label for="PostName">Details</label>
+                                <input type="text" name="details" class="form-control" id="Details" placeholder="Details">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File input</label>

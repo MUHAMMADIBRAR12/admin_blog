@@ -37,7 +37,7 @@ class CategoryController extends Controller
         $category->image=$imageName;
         $category->name=$request->name;
         $category->save();
-        return back();
+        return redirect()->route('category.index')->withsuccess(' Category created Successfuly');
 
     }
 

@@ -14,8 +14,8 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        $subcategory=SubCategory::paginate(10);
-        return view('subcategory.index',compact('subcategory'));
+        $subcategories = SubCategory::with('category')->paginate(10);
+        return view('subcategory.index',compact('subcategories'));
     }
 
     /**
@@ -76,7 +76,7 @@ class SubCategoryController extends Controller
             $subcategory->image=$imageName;
         }
             $subcategory->name=$request->name;
-            $subcategory->category_id=$request->category_id;
+            $subcategory->category_id = $request->category_id;
             $subcategory->save();
             // return back();
             return redirect()->route('subcategory.index')->withsuccess('subCategory Updated Successfully');
