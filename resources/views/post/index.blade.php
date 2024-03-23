@@ -31,24 +31,33 @@
                     <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Post Name</th>
-                            {{-- <th>Category Name</th> --}}
-                            <th>Details</th>
-                            <th>Post Image</th>
+                            <th>Category Name</th>
+                            <th>SubCategory Name</th>
+                            <th>Title</th>
+                            <th>Short Description</th>
+                            <th>Long Description</th>
+                            <th>Author</th>
+                            <th>Image</th>
+                            <th>Tags</th>
                             <th>Created AT</th>
                             <th>Updated AT</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($post as $item)
+                        @foreach ($posts as $item)
 
                             <tr>
-                                <td>{{ $item['name'] }}</td>
-                                <td>{{ $item['details'] }}</td>
+                                <td>{{ $item['category']['name'] }}</td>
+                                <td>{{ $item['subcategory']['name'] }}</td>
+                                <td>{{ $item['title'] }}</td>
+                                <td>{{ $item['short_description'] }}</td>
+                                <td>{{ $item['long_description'] }}</td>
+                                <td>{{ $item['author'] }}</td>
                                 <td>
                                     <img src="{{('posts/'). $item->image}}" alt="" class="rounded-circle" width="50px" height="50px">
                                 </td>
+                                <td> {{ $item['tags'] }}</td>
                                 <td> {{ $item['created_at'] }}</td>
                                 <td> {{ $item['updated_at'] }}</td>
                                 <td>

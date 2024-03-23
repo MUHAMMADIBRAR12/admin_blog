@@ -27,6 +27,11 @@
                     <div class="card-header">
                         <h3 class="card-title">Create Category</h3>
                     </div>
+                    @if($errors->has('default'))
+                        <div class="alert alert-danger">
+                         {{ $errors-first('default') }}
+                        </div>
+                    @endif
                     <form action="{{ Route('category.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
@@ -34,6 +39,9 @@
                                 <label for="CategoryName">Category Name</label>
                                 <input type="text" name="name" class="form-control" id="CategoryName" placeholder="Category Name">
                             </div>
+                            @if($errors->has('name'))
+                                <span class="text-danger">{{ $errors->first('name') }}</span>
+                            @endif
                             <div class="form-group">
                                 <label for="exampleInputFile">File input</label>
                                 <div class="input-group">
@@ -43,6 +51,9 @@
                                     </div>
                                 </div>
                             </div>
+                            @if($errors->has('image'))
+                                <span class="text-danger">{{ $errors->first('image') }}</span>
+                            @endif
                         </div>
                         <div class="card-footer">
                             <button type="submit" name="submit" class="btn btn-primary">Submit</button>

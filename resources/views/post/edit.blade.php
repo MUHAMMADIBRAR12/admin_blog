@@ -32,8 +32,8 @@
                         @method('PUT')
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="Post">Post Name</label>
-                                <input type="text" name="name" value="{{ old('name',$post->name) }}" class="form-control" id="Post" placeholder="Post Name">
+                                <label for="Post">Post Title</label>
+                                <input type="text" name="title" value="{{ old('title',$post->title) }}" class="form-control" id="Post" placeholder="Post Name">
                             </div>
                             {{-- <div class="form-group">
                                 <label for="CategoryName">Select category</label>

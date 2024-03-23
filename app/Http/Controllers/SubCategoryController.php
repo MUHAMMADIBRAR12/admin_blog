@@ -33,6 +33,11 @@ class SubCategoryController extends Controller
      */
     public function store(Request $request)
     {
+      $request->validate([
+        'name'=>'required',
+        'category_id'=>'required',
+        'image'=>'required'
+      ]);
       $imageName=time().'.'.$request->image->extension();
       $request->image->move(public_path('subcategories'),$imageName);
 

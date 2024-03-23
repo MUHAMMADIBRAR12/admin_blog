@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         // return view('category.index');
         $category=Category::get();
-        return view ('category.index',compact('category'));
+        return json_encode($category);
     }
 
     /**
@@ -30,6 +30,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'image'=>'required',
+            'name'=>'required'
+        ]);
         $imageName=time().'.'.$request->image->extension();
         $request->image->move(public_path('categories'),$imageName);
 
